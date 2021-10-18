@@ -13,16 +13,25 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+app.get("/", function(req, res) {
+  res.render("home", {homeStartingContent, homeStartingContent});
+});
 
+app.get("/about", function(req, res) {
+  res.render("about", {aboutContent, aboutContent});
+});
 
+app.get("/contact", function(req, res) {
+  res.render("contact", {contactContent, contactContent});
+});
 
+app.get("/compose", function(req, res) {
+  res.render("compose");
+});
 
-
-
-
-
-
-
+app.post("/compose", function(req, res) {
+  console.log(req.body.postTitle)
+})
 
 
 
