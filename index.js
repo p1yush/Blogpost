@@ -42,7 +42,16 @@ app.post("/compose", function(req, res) {
   res.redirect("/");
 });
 
-
+app.get("/posts/:postName", function(req, res) {
+  const postparams = req.params.postName
+  posts.forEach(function(post) {
+    const storedTitle = post.title;
+    
+    if(postparams === storedTitle) {
+      console.log("Match Found");
+    }
+  });
+});
 
 app.listen(4000, function() {
   console.log("Server started on port 4000");
